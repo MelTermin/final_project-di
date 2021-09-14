@@ -8,6 +8,7 @@ import Signup from './Components/Signup'
 import Workout from './Components/Workout'
 import Contact from './Components/Contact'
 import Form from './Components/Form'
+import { WorkoutContextProvider } from './context/WorkoutContext';
 import {AuthProvider} from './Auth'
 import PrivateRoute from './PrivateRoute';
 
@@ -15,7 +16,7 @@ import PrivateRoute from './PrivateRoute';
 function App() {
   return (
   
- 
+    <WorkoutContextProvider>
       <AuthProvider>
          <Router>
         <div >
@@ -29,7 +30,7 @@ function App() {
         </div>
       </Router>
       </AuthProvider>
-   
+      </WorkoutContextProvider>
 
  
    
