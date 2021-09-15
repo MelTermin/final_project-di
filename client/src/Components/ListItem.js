@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState,useEffect,useContext} from 'react'
 import Background from './Background'
+import ProgressChart from './ProgressChart'
 import {WorkoutContext} from '../context/WorkoutContext'
 import axios from 'axios'
 
@@ -12,6 +13,7 @@ const [modalIsOpen, setModalIsOpen]=useState(null);
 const [exercise, setExercise]= useState("")
 const [repetition,setRepition]=useState("")
 const [weight,setWeight]=useState("")
+const [date,setDate]=useState("")
 const [duration,setDuration]=useState("")
 
 useEffect (()=> {
@@ -42,7 +44,7 @@ const handleEdit= async (id) => {
   console.log(id)
 
   axios.put(`http://localhost:4000/tracker/${id}`, {
-    exercise,repetition,weight,duration
+    exercise,repetition,weight,duration,date
   }).then (response=> {
     console.log(response)
     
@@ -54,6 +56,7 @@ const handleEdit= async (id) => {
       item.repetition = repetition;
       item.duration = duration;
       item.weight = duration;
+      item.date=date
 
   }
       return item;
@@ -63,6 +66,7 @@ const handleEdit= async (id) => {
       setDuration("")
       setExercise("")
       setRepition("")
+      setDate("")
       setModalIsOpen(null)
 }
 
@@ -91,44 +95,34 @@ const handleEdit= async (id) => {
                     <label>Duration:</label>
                     <input type="number" value= {duration} name="duration" onChange={e => setDuration(e.target.value)} placeholder="Duration" ></input>
 
+                    <label>Date:</label>
+                    <input type="date" value={date} name="date" onChange={e => setDate(e.target.value)}></input>
+                    
                     <button className="btn-submit"  type="submit" onClick={() => handleEdit(item.id)} > Submit</button>
+
+                  
                   </form>
                   <Background></Background>
                 </div>): (
-            <div  >
-              <table>
-                <tr>
-              <th>Exercise</th>
-              <th>Repetition</th>
-              <th>Weight</th>
-              <th>Duration</th>
-              <th>Edit</th>
-              <th>Delete</th>
-                </tr>
-         
-            {details.map((item) => {
-              return (
-                <tr>
-               <td>{item.exercise}</td>
-              <td>{item.repetition} rep</td>
-              <td>{item.weight} kg</td>
-              <td>{item.duration} min</td>
-              <td><button className="delete-btn" type="button"  onClick={() => handleDelete(item.id)}>Delete </button></td>
-              <td><button className="delete-btn" type="button" onClick= {() =>setModalIsOpen(item.id)} >Edit </button>
-              </td>
-           </tr>
-              )
-            })}
-
-      
-        </table>
-              
+            <div className="details-container" >
+        
+            <div className="item" >
+              <div>{item.exercise}</div>
+              <div>{item.repetition} rep</div>
+              <div>{item.weight} kg</div>
+              <div>{item.duration} min</div>
+              <div>{new Date (item.date).toLocaleDateString("en-US")}</div>
+              <div><button className="delete-btn" type="button"  onClick={() => handleDelete(item.id)}>Delete </button></div>
+              <div><button className="delete-btn" type="button" onClick= {() =>setModalIsOpen(item.id)} >Edit </button>
+              </div>
             </div>
-            )
+       
+            </div>)
             }
           </div>
             ))}
         </div>
+        <ProgressChart></ProgressChart>
     </div>
   )
 }

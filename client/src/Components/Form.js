@@ -13,12 +13,13 @@ const [exercise, setExercise]= useState("")
 const [repetition,setRepition]=useState("")
 const [weight,setWeight]=useState("")
 const [duration,setDuration]=useState("")
+const [date,setDate]=useState("")
 
 
 const handleSubmit = (e)=> {
   e.preventDefault()
   axios.post("http://localhost:4000/tracker", {
-    exercise,repetition,weight,duration
+    exercise,repetition,weight,duration,date
   }).then (response=> {
     console.log(response)
     addWorkoutItem(response.data.data.trackerItem)
@@ -27,6 +28,7 @@ const handleSubmit = (e)=> {
   setDuration("")
   setExercise("")
   setRepition("")
+  setDate("")
 }
   return (
     
@@ -34,7 +36,7 @@ const handleSubmit = (e)=> {
     <SideNavBar></SideNavBar>
     <div className="main">
       <form className="workout-details-form">
-      <h1>Form</h1>
+      <h1>Workout Detail Form</h1>
         
         <label>Name of exercise:</label>
         <input type="text" value= {exercise}  name="exercise"onChange={e => setExercise(e.target.value)} placeholder="Please type a exercise " ></input>
@@ -48,6 +50,9 @@ const handleSubmit = (e)=> {
         <label>Duration:</label>
         <input type="number" value= {duration} name="duration" onChange={e => setDuration(e.target.value)} placeholder="Duration" ></input>
 
+        <label>Date:</label>
+        <input type="date" value={date} name="date" onChange={e => setDate(e.target.value)}></input>
+        
         <button onClick= {handleSubmit} >ADD</button>
       </form>
 

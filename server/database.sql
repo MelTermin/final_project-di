@@ -5,7 +5,8 @@ CREATE TABLE trackerList (
   exercise VARCHAR(200),
   repetition VARCHAR(200),
   weight VARCHAR(200),
-  duration VARCHAR(200)
+  duration VARCHAR(200),
+  date DATE DEFAULT CURRENT_DATE
 );
 
 CREATE TABLE contactform (

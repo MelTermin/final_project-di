@@ -17,9 +17,9 @@ app.use(express.json())
 //create item//
 app.post("/tracker", async(req,res) => {
   try {
-    const {exercise,repetition,weight,duration}= req.body
+    const {exercise,repetition,weight,duration,date}= req.body
     console.log(req.body)
-    const newTrackerList= await pool.query("INSERT INTO trackerlist (exercise,repetition,weight,duration) VALUES($1,$2,$3,$4) RETURNING *", [exercise,repetition,weight,duration])
+    const newTrackerList= await pool.query("INSERT INTO trackerlist (exercise,repetition,weight,duration,date) VALUES($1,$2,$3,$4, $5) RETURNING *", [exercise,repetition,weight,duration,date])
     res.status(200).json({
       status: "success",
       results: newTrackerList.rows.length,
@@ -89,9 +89,9 @@ app.get("/tracker/:id", async (req, res) => {
 app.put("/tracker/:id", async(req,res) => {
   try {
     const id = parseInt(req.params.id);
-    const {exercise,repetition,weight,duration}= req.body
+    const {exercise,repetition,weight,duration,date}= req.body
 
-    const updateTrackerItem= await pool.query("UPDATE trackerlist SET exercise= $1, repetition=$2, weight=$3 ,duration=$4 WHERE id=$5 returning *",[ exercise,repetition,weight,duration,id])
+    const updateTrackerItem= await pool.query("UPDATE trackerlist SET exercise= $1, repetition=$2, weight=$3 ,duration=$4, date=$5 WHERE id=$6 returning *",[ exercise,repetition,weight,duration,date,id])
     res.status(200).json({
       status: "succes",
       data: {
