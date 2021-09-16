@@ -30,7 +30,7 @@ const Login = ({ history }) => {
   return (
     <div className="login-component" >
         <form className="login-form" onSubmit={handleLogin}>
-        <h1>Log in</h1>
+        <h1>Login</h1>
         <br></br>
         <br></br>
           <label>
@@ -41,13 +41,9 @@ const Login = ({ history }) => {
           Password
           <input name="password" type="password" placeholder="Password" />
         </label>
+        <br></br>
+        <br></br>
         <button className="login-btn" type="submit">Log in</button>
-
-        <div className="go-back">
-          <Link to="/signup">
-         <button>Go back</button> 
-         </Link>
-        </div>
       
       </form>
     </div>

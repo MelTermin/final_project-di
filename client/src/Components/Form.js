@@ -53,7 +53,7 @@ const handleSubmit = (e)=> {
         <label>Date:</label>
         <input type="date" value={date} name="date" onChange={e => setDate(e.target.value)}></input>
         
-        <button onClick= {handleSubmit} >ADD</button>
+        <button className="add-btn" onClick= {handleSubmit} >ADD</button>
       </form>
 
       <ListItem></ListItem>

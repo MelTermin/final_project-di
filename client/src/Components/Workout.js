@@ -63,35 +63,37 @@ console.log(workoutDetails)
     <div className="main-page-wrapper">
     <SideNavBar></SideNavBar>
     <div className="main">
-      <h1>Search Workout</h1>
-      <input type="text" placeholder="Please search a workout" value= {searchWorkOut} onChange= {(e)=>setSearchWorkOut(e.target.value)}></input>
-      <button onClick= {handleWorkOut}>Search</button>
-       
-        <div className="countdown-container">
-            <div>{seconds}s</div>
-            <button className={`button button-primary button-primary-${isActive ? 'active' : 'inactive'}`} onClick={toggle}>
+      
+      <div className="search-container">
+        <div className="search-box">
+          <input className="workout-search" type="text" placeholder="Please search a workout..." value= {searchWorkOut} onChange= {(e)=>setSearchWorkOut(e.target.value)}></input>
+          <button className="button-search" onClick= {handleWorkOut}>Search</button>
+        </div>
+
+          <div className="countdown-container">
+            <p className="seconds-title">{seconds}s</p>
+            <button className={`countdown-btn ${isActive ? 'active' : 'inactive'}`} onClick={toggle}>
             {isActive ? 'Pause' : 'Start'}</button>
-            <button className="button" onClick={reset}>Reset</button>
-         </div>
+            <button className="countdown-btn"  onClick={reset}>Reset</button>
+            </div>
+      </div>
+      
 
          <div className="card-container">
         
         {
-          workoutDetails.slice(0,10).map((item) => {
+          workoutDetails.slice(0,6).map((item) => {
           return (//dont forget to return it Melissa!!//
             
             <div className="workout-container"  >
-                <p>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</p>
+               <p className="title-workout">Body Part:{item.bodyPart}</p>
+              {/* <p className="title-workout">{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</p> */}
               <img className="gif" src= {item.gifUrl}></img>
             
   
               <div className="workout-details"> 
-                <p>Body Part:{item.bodyPart}</p>
                 <p>Equipment:{item.equipment} </p>
-                
                 <p>Target:{item.target}</p>
-                
-  
               </div>
             
             </div>

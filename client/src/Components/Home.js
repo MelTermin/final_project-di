@@ -10,12 +10,21 @@ function Home() {
     <SideNavBar></SideNavBar>
     <div className="main">
    
-      <h1>Node.js Weight Tracker with Postgres SQL & React</h1>
-      <div>Welcome to the Weight Tracker and Fitness Workout sample project!</div>
-      <div>Add a <Link  to="/form" >
-      weight measurement </Link> or find a <Link  to="/workout" >
-      workout according to your need!</Link>
-    </div>
+      <div className="home-container">
+        <div className="home-container-titles">
+          <div><h2>Node.js Weight Tracker with Postgres SQL & React</h2></div>
+          <br></br>
+            <div>Welcome to the Weight Tracker and Fitness Workout sample project!</div>
+            <br></br>
+            <br></br>
+            <div>Add a <Link className="link-home"  to="/form" >
+            weight measurement </Link> or find a <Link className="link-home"  to="/workout" >
+            workout according to your need!</Link>
+             </div>
+        </div>
+      </div>
+
+
     </div>
    </div>
      
