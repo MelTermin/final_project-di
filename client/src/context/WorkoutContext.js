@@ -5,9 +5,14 @@ export const WorkoutContext = createContext();
 export const WorkoutContextProvider = (props) => {
   
   const [details,setDetails] = useState([]);
+  const [workoutDetails,setWorkOutDetails]=useState([])
+
   
   const addWorkoutItem= (detail) => {
     setDetails([...details,detail])
+  }
+  const searchWorkout=(item) => {
+    setWorkOutDetails([...workoutDetails,item])
   }
   
   return (
@@ -15,7 +20,10 @@ export const WorkoutContextProvider = (props) => {
       value={{
         details:details,
         setDetails:setDetails,
-        addWorkoutItem,   
+        addWorkoutItem,  
+        workoutDetails:workoutDetails,
+        setWorkOutDetails:setWorkOutDetails,
+        searchWorkout
       }}
     >
       {props.children}

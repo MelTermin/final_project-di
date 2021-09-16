@@ -32,7 +32,7 @@ const handleSubmit = (e)=> {
 }
   return (
     
-    <div className="page-wrapper">
+    <div className="main-page-wrapper">
     <SideNavBar></SideNavBar>
     <div className="main">
       <form className="workout-details-form">

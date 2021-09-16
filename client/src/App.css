@@ -125,9 +125,11 @@ display: block;
 }
 
 
-.page-wrapper {
+.main-page-wrapper {
   height: 100vh;
   display: flex;
+
+ 
 }
 
 .sidebar {
@@ -136,14 +138,14 @@ display: block;
   justify-content: flex-start;
   align-items: center;
   padding-top: 15px;
-  width: 300px;
+  width: 200px;
   background-color: #2F4050;
 }
 
 .link {
   text-decoration: none;
   color: white;
-  font-size: 20px;
+  font-size: 19px;
   margin: 48px;
 }
 
@@ -177,9 +179,10 @@ display: block;
 .workout-details-form {
  
   /* display:flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between; */
-  margin: 50px 50px;
+  margin: 20px 50px;
+  border: 2px solid red;
  
 }
 
@@ -188,17 +191,14 @@ display: block;
 } */
 
 .workout-details-form input {
-width: 140px;
+width: 100px;
 height: 5px;
 margin:10px;
 }
 
 .items {
 
-  margin: 50px 50px;
-
-
-
+  margin: 20px 50px;
 }
 
 

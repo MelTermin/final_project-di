@@ -25,7 +25,7 @@ function SideNavBar() {
 
         <Link className="link" to="/form" >
          <div style={{display: "flex", justifyContent: "space-between"}}>
-            <BiSpreadsheet  size={22}/><li style= {{marginLeft:"10px"}}>Track Progress</li>
+            <BiSpreadsheet  size={22}/><li style= {{marginLeft:"10px"}}>Progress</li>
         </div>
         </Link>
 

@@ -1,12 +1,12 @@
 import React from 'react'
-
+import app from '../firebase'
 import SideNavBar from './SideNavBar'
 import {Link} from 'react-router-dom'
 
 function Home() {
   return (
     
-    <div className="page-wrapper">
+    <div className="main-page-wrapper" >
     <SideNavBar></SideNavBar>
     <div className="main">
    

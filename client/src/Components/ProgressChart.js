@@ -48,7 +48,7 @@ const ProgressChart = () => {
   return (
     <div >
       <h1>Track Progress</h1>
-      <div style= {{height:"300px", width:"1000px"}}>
+      <div style= {{height:"200px", width:"700px"}}>
         <Line
           data={chartData}
           options={{
