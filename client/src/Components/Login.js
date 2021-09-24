@@ -2,7 +2,7 @@ import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
 import app from '../firebase'
 import { AuthContext } from "../Auth";
-import { Link } from "react-router-dom"
+
 
 const Login = ({ history }) => {
   const handleLogin = useCallback(
@@ -44,6 +44,7 @@ const Login = ({ history }) => {
         <br></br>
         <br></br>
         <button className="login-btn" type="submit">Log in</button>
+
       
       </form>
     </div>

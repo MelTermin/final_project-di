@@ -83,12 +83,12 @@ console.log(workoutDetails)
         
         {
           workoutDetails.slice(0,6).map((item) => {
-          return (//dont forget to return it Melissa!!//
+          return (
             
             <div className="workout-container"  >
                <p className="title-workout">Body Part:{item.bodyPart}</p>
               {/* <p className="title-workout">{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</p> */}
-              <img className="gif" src= {item.gifUrl}></img>
+              <img className="gif" src= {item.gifUrl} alt="gif"></img>
             
   
               <div className="workout-details"> 

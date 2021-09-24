@@ -21,7 +21,7 @@ useEffect (()=> {
    console.log(response)
    setDetails(response.data.data.trackerItem)
  })
-}, []);
+},[]);
 
 const handleDelete = (id) => {
   try {

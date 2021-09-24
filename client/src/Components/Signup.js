@@ -1,7 +1,6 @@
 import React, { useCallback } from "react";
 import { withRouter } from "react-router";
 import app from "../firebase";
-
 import { Link } from "react-router-dom"
 import { FaFacebook,FaYoutube } from 'react-icons/fa';
 import {SiInstagram} from 'react-icons/si';
@@ -24,9 +23,7 @@ const SignUp = ({ history }) => {
   }, [history]);
 
   return (
-    
- 
-
+  
     <div className="signup-box">
       <div className="signup-left"></div>
       <div className="signup-right">

@@ -14,7 +14,7 @@ function SideNavBar() {
        
           <ul className="nav-links" >
         
-       <img className="logo" src={pic2}></img>
+       <img className="logo" src={pic2} alt="logo"></img>
 
     
          <Link className="link" to="/" >

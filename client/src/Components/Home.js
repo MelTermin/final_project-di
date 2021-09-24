@@ -1,5 +1,4 @@
 import React from 'react'
-import app from '../firebase'
 import SideNavBar from './SideNavBar'
 import {Link} from 'react-router-dom'
 

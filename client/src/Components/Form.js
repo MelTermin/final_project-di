@@ -3,6 +3,7 @@ import SideNavBar from './SideNavBar'
 import ListItem from './ListItem'
 import {useState,useContext} from 'react'
 import {WorkoutContext} from '../context/WorkoutContext'
+
 import axios from 'axios';
 
 function Form() {
@@ -16,26 +17,32 @@ const [duration,setDuration]=useState("")
 const [date,setDate]=useState("")
 
 
+
+
 const handleSubmit = (e)=> {
   e.preventDefault()
+
+  
   axios.post("http://localhost:4000/tracker", {
     exercise,repetition,weight,duration,date
   }).then (response=> {
     console.log(response)
     addWorkoutItem(response.data.data.trackerItem)
   })
+
   setWeight("")
   setDuration("")
   setExercise("")
   setRepition("")
   setDate("")
+
 }
   return (
     
     <div className="main-page-wrapper">
     <SideNavBar></SideNavBar>
     <div className="main">
-      <form className="workout-details-form">
+      <form className="workout-details-form" onSubmit= {handleSubmit} >
       <h1>Workout Detail Form</h1>
         
         <label>Name of exercise:</label>
@@ -53,7 +60,13 @@ const handleSubmit = (e)=> {
         <label>Date:</label>
         <input type="date" value={date} name="date" onChange={e => setDate(e.target.value)}></input>
         
-        <button className="add-btn" onClick= {handleSubmit} >ADD</button>
+   
+  <button className="add-btn" >ADD</button>) 
+    
+
+       
+       
+        
       </form>
 
       <ListItem></ListItem>
