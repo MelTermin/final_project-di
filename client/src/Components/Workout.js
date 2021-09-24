@@ -32,7 +32,11 @@ function Workout() {
     return () => clearInterval(interval);
   }, [isActive, seconds]);
 
+  
+
   const handleWorkOut= () => {
+
+ setIsLoading(true)
 
   fetch(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${searchWorkOut}`, {
 	"method": "GET",
@@ -46,10 +50,13 @@ function Workout() {
 })
 .then(data=>{
   console.log(data);
+
+  setWorkOutDetails(data)
+  
   setTimeout(() => {
     setIsLoading(false);
-    }, [3000]);
-  setWorkOutDetails(data)
+    }, [1000]);
+  
 })
 .catch(err => {
   console.error(err);
@@ -68,6 +75,16 @@ console.log(workoutDetails)
         <div className="search-box">
           <input className="workout-search" type="text" placeholder="Please search a workout..." value= {searchWorkOut} onChange= {(e)=>setSearchWorkOut(e.target.value)}></input>
           <button className="button-search" onClick= {handleWorkOut}>Search</button>
+
+          {isLoading &&
+            <div class="loader1"> 
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+     }
         </div>
 
           <div className="countdown-container">

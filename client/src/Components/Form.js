@@ -15,6 +15,7 @@ const [repetition,setRepition]=useState("")
 const [weight,setWeight]=useState("")
 const [duration,setDuration]=useState("")
 const [date,setDate]=useState("")
+const [submitting, setSubmitting] = useState(false);
 
 
 
@@ -22,7 +23,7 @@ const [date,setDate]=useState("")
 const handleSubmit = (e)=> {
   e.preventDefault()
 
-  
+  setSubmitting(true);
   axios.post("http://localhost:4000/tracker", {
     exercise,repetition,weight,duration,date
   }).then (response=> {
@@ -36,12 +37,17 @@ const handleSubmit = (e)=> {
   setRepition("")
   setDate("")
 
+  setTimeout(() => {
+    setSubmitting(false);
+  }, 1000)
+
 }
   return (
     
     <div className="main-page-wrapper">
     <SideNavBar></SideNavBar>
     <div className="main">
+   
       <form className="workout-details-form" onSubmit= {handleSubmit} >
       <h1>Workout Detail Form</h1>
         
@@ -61,13 +67,23 @@ const handleSubmit = (e)=> {
         <input type="date" value={date} name="date" onChange={e => setDate(e.target.value)}></input>
         
    
-  <button className="add-btn" >ADD</button>) 
+        <button className="add-btn" >ADD</button>
     
-
+        {submitting &&
+            <div class="loader1"> 
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+     }
        
        
         
       </form>
+      
+  
 
       <ListItem></ListItem>
     </div>
